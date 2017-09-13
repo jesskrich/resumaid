@@ -20579,3 +20579,271 @@ Processing by CoverLettersController#index as HTML
 Completed 200 OK in 43ms (Views: 38.7ms | ActiveRecord: 0.2ms)
 
 
+Started GET "/cover_letters" for 127.0.0.1 at 2017-09-13 13:32:41 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CoverLettersController#index as HTML
+  Rendering cover_letters/index.html.erb within layouts/application
+  [1m[36mCoverLetter Load (0.5ms)[0m  [1m[34mSELECT "cover_letters".* FROM "cover_letters" ORDER BY created_at DESC[0m
+  Rendered cover_letters/index.html.erb within layouts/application (12.9ms)
+Completed 200 OK in 314ms (Views: 297.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/resume" for 127.0.0.1 at 2017-09-13 13:34:28 -0400
+Processing by PagesController#resume as HTML
+  Rendering pages/resume.html.erb within layouts/application
+  Rendered pages/resume.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 74ms (Views: 71.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-09-13 13:35:45 -0400
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  [1m[36mCoverLetter Load (0.6ms)[0m  [1m[34mSELECT  "cover_letters".* FROM "cover_letters" WHERE "cover_letters"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  Rendered posts/_form.html.erb (23.5ms)
+  Rendered posts/new.html.erb within layouts/application (26.5ms)
+Completed 200 OK in 84ms (Views: 61.4ms | ActiveRecord: 1.9ms)
+
+
+  [1m[36mCoverLetter Load (0.5ms)[0m  [1m[34mSELECT  "cover_letters".* FROM "cover_letters" WHERE "cover_letters"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+Started POST "/posts" for 127.0.0.1 at 2017-09-13 14:04:12 -0400
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VzlGIUYVAijx2HZ/7I7nHeiaAAf+h89sphHjr0ef3TdQ8eYFPj0IN+EYnElJEaIUX+kvUxHOefGCMFX4QPLW+Q==", "post"=>{"company_name"=>"test post", "position_title"=>"dev", "job_description"=>"fdsfds", "custom_cover_letter"=>"Dear Hiring Manager at [COMPANY],\r\n\r\nMy name is Jessie Richardson and I’m a developer applying for the role of [POSITION].\r\n\r\nFor the past year and a half, I have been working as a software developer at a small game startup. I was the first hire at my company, working alongside the CEO and CTO, so I am accustomed to wearing a lot of hats, being innovative, and product-savvy. In addition to coding and sometimes designing prototypes, I played an active role in strategizing revenue generation for each project, as well as ways to meet investor return goals.\r\n\r\nCulturally-speaking, I am an excellent communicator, easy-going, and comfortable working either independently or as part of a team. I always go the extra mile to ensure that the product I am developing is clean, functional, and scalable.\r\n\r\nIf all this seems like I could be a good fit for [COMPANY], I would love to hear more about the position and long-term goals of the company.\r\n\r\nThanks for taking the time to read!\r\n\r\nBest,\r\n\r\nJessie Richardson\r\n"}, "commit"=>"Create Post"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.5ms)[0m  [1m[32mINSERT INTO "posts" ("company_name", "custom_cover_letter", "created_at", "updated_at", "position_title", "job_description") VALUES (?, ?, ?, ?, ?, ?)[0m  [["company_name", "test post"], ["custom_cover_letter", "Dear Hiring Manager at [COMPANY],\r\n\r\nMy name is Jessie Richardson and I’m a developer applying for the role of [POSITION].\r\n\r\nFor the past year and a half, I have been working as a software developer at a small game startup. I was the first hire at my company, working alongside the CEO and CTO, so I am accustomed to wearing a lot of hats, being innovative, and product-savvy. In addition to coding and sometimes designing prototypes, I played an active role in strategizing revenue generation for each project, as well as ways to meet investor return goals.\r\n\r\nCulturally-speaking, I am an excellent communicator, easy-going, and comfortable working either independently or as part of a team. I always go the extra mile to ensure that the product I am developing is clean, functional, and scalable.\r\n\r\nIf all this seems like I could be a good fit for [COMPANY], I would love to hear more about the position and long-term goals of the company.\r\n\r\nThanks for taking the time to read!\r\n\r\nBest,\r\n\r\nJessie Richardson\r\n"], ["created_at", "2017-09-13 18:04:12.933347"], ["updated_at", "2017-09-13 18:04:12.933347"], ["position_title", "dev"], ["job_description", "fdsfds"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/posts/13
+Completed 302 Found in 8ms (ActiveRecord: 2.4ms)
+
+
+Started GET "/posts/13" for 127.0.0.1 at 2017-09-13 14:04:12 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 13]]
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 13]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered comments/_form.html.erb (21.3ms)
+  Rendered posts/show.html.erb within layouts/application (79.1ms)
+Completed 200 OK in 148ms (Views: 142.5ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-09-13 14:13:16 -0400
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  [1m[36mCoverLetter Load (0.5ms)[0m  [1m[34mSELECT  "cover_letters".* FROM "cover_letters" WHERE "cover_letters"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  Rendered posts/_form.html.erb (9.6ms)
+  Rendered posts/new.html.erb within layouts/application (11.9ms)
+Completed 200 OK in 58ms (Views: 46.4ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2017-09-13 14:13:31 -0400
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ytt3uTZfoKTk7sLNh6koCv0zdOUQ/++erpOUSooxLaLNE9edTnequ/QuKPsiNm0DSkBbsf+2WQOKsiIdjVwmbA==", "post"=>{"company_name"=>"Gap", "position_title"=>"Developer", "job_description"=>"", "custom_cover_letter"=>"Dear Hiring Manager at [COMPANY],\r\n\r\nMy name is Jessie Richardson and I’m a developer applying for the role of [POSITION].\r\n\r\nFor the past year and a half, I have been working as a software developer at a small game startup. I was the first hire at my company, working alongside the CEO and CTO, so I am accustomed to wearing a lot of hats, being innovative, and product-savvy. In addition to coding and sometimes designing prototypes, I played an active role in strategizing revenue generation for each project, as well as ways to meet investor return goals.\r\n\r\nCulturally-speaking, I am an excellent communicator, easy-going, and comfortable working either independently or as part of a team. I always go the extra mile to ensure that the product I am developing is clean, functional, and scalable.\r\n\r\nIf all this seems like I could be a good fit for [COMPANY], I would love to hear more about the position and long-term goals of the company.\r\n\r\nThanks for taking the time to read!\r\n\r\nBest,\r\n\r\nJessie Richardson\r\n"}, "commit"=>"Create Post"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "posts" ("company_name", "custom_cover_letter", "created_at", "updated_at", "position_title", "job_description") VALUES (?, ?, ?, ?, ?, ?)[0m  [["company_name", "Gap"], ["custom_cover_letter", "Dear Hiring Manager at [COMPANY],\r\n\r\nMy name is Jessie Richardson and I’m a developer applying for the role of [POSITION].\r\n\r\nFor the past year and a half, I have been working as a software developer at a small game startup. I was the first hire at my company, working alongside the CEO and CTO, so I am accustomed to wearing a lot of hats, being innovative, and product-savvy. In addition to coding and sometimes designing prototypes, I played an active role in strategizing revenue generation for each project, as well as ways to meet investor return goals.\r\n\r\nCulturally-speaking, I am an excellent communicator, easy-going, and comfortable working either independently or as part of a team. I always go the extra mile to ensure that the product I am developing is clean, functional, and scalable.\r\n\r\nIf all this seems like I could be a good fit for [COMPANY], I would love to hear more about the position and long-term goals of the company.\r\n\r\nThanks for taking the time to read!\r\n\r\nBest,\r\n\r\nJessie Richardson\r\n"], ["created_at", "2017-09-13 18:13:31.242129"], ["updated_at", "2017-09-13 18:13:31.242129"], ["position_title", "Developer"], ["job_description", ""]]
+  [1m[35m (2.9ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/posts/14
+Completed 302 Found in 8ms (ActiveRecord: 3.8ms)
+
+
+Started GET "/posts/14" for 127.0.0.1 at 2017-09-13 14:13:31 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"14"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 14]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 14]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered comments/_form.html.erb (11.4ms)
+  Rendered posts/show.html.erb within layouts/application (22.7ms)
+Completed 200 OK in 63ms (Views: 58.6ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-09-13 14:14:34 -0400
+  
+SyntaxError (/Users/jessierichardson/Desktop/projects/Ruby/resumaid/app/controllers/posts_controller.rb:32: syntax error, unexpected '=', expecting keyword_end
+...         :custom_cover_letter = :custom_cover_letter.gsub!('...
+...                               ^
+/Users/jessierichardson/Desktop/projects/Ruby/resumaid/app/controllers/posts_controller.rb:33: syntax error, unexpected '=', expecting keyword_end
+...         :custom_cover_letter = :custom_cover_letter.gsub!('...
+...                               ^):
+  
+app/controllers/posts_controller.rb:32: syntax error, unexpected '=', expecting keyword_end
+app/controllers/posts_controller.rb:33: syntax error, unexpected '=', expecting keyword_end
+  Rendering /Users/jessierichardson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/jessierichardson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/jessierichardson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.1ms)
+  Rendering /Users/jessierichardson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jessierichardson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendering /Users/jessierichardson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jessierichardson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/jessierichardson/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (63.4ms)
+Started GET "/posts/new" for 127.0.0.1 at 2017-09-13 14:15:08 -0400
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  [1m[36mCoverLetter Load (0.1ms)[0m  [1m[34mSELECT  "cover_letters".* FROM "cover_letters" WHERE "cover_letters"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  Rendered posts/_form.html.erb (9.8ms)
+  Rendered posts/new.html.erb within layouts/application (12.1ms)
+Completed 200 OK in 55ms (Views: 41.9ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-09-13 14:17:06 -0400
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  [1m[36mCoverLetter Load (0.1ms)[0m  [1m[34mSELECT  "cover_letters".* FROM "cover_letters" WHERE "cover_letters"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  Rendered posts/_form.html.erb (9.5ms)
+  Rendered posts/new.html.erb within layouts/application (11.9ms)
+Completed 200 OK in 67ms (Views: 54.3ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2017-09-13 14:17:22 -0400
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+YkSM9sMnKow5k0M3cPTCPiLaCFQXPCf4QSR0F2W8NQIQjL1AzxUd1peAOeTJBayWVqmwz9YEAEe8cPoGgu13Q==", "post"=>{"company_name"=>"Gap", "position_title"=>"fdsfdf", "job_description"=>"", "custom_cover_letter"=>"Dear Hiring Manager at [COMPANY],\r\n\r\nMy name is Jessie Richardson and I’m a developer applying for the role of [POSITION].\r\n\r\nFor the past year and a half, I have been working as a software developer at a small game startup. I was the first hire at my company, working alongside the CEO and CTO, so I am accustomed to wearing a lot of hats, being innovative, and product-savvy. In addition to coding and sometimes designing prototypes, I played an active role in strategizing revenue generation for each project, as well as ways to meet investor return goals.\r\n\r\nCulturally-speaking, I am an excellent communicator, easy-going, and comfortable working either independently or as part of a team. I always go the extra mile to ensure that the product I am developing is clean, functional, and scalable.\r\n\r\nIf all this seems like I could be a good fit for [COMPANY], I would love to hear more about the position and long-term goals of the company.\r\n\r\nThanks for taking the time to read!\r\n\r\nBest,\r\n\r\nJessie Richardson\r\n"}, "commit"=>"Create Post"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("company_name", "custom_cover_letter", "created_at", "updated_at", "position_title", "job_description") VALUES (?, ?, ?, ?, ?, ?)[0m  [["company_name", "Gap"], ["custom_cover_letter", "Dear Hiring Manager at [COMPANY],\r\n\r\nMy name is Jessie Richardson and I’m a developer applying for the role of [POSITION].\r\n\r\nFor the past year and a half, I have been working as a software developer at a small game startup. I was the first hire at my company, working alongside the CEO and CTO, so I am accustomed to wearing a lot of hats, being innovative, and product-savvy. In addition to coding and sometimes designing prototypes, I played an active role in strategizing revenue generation for each project, as well as ways to meet investor return goals.\r\n\r\nCulturally-speaking, I am an excellent communicator, easy-going, and comfortable working either independently or as part of a team. I always go the extra mile to ensure that the product I am developing is clean, functional, and scalable.\r\n\r\nIf all this seems like I could be a good fit for [COMPANY], I would love to hear more about the position and long-term goals of the company.\r\n\r\nThanks for taking the time to read!\r\n\r\nBest,\r\n\r\nJessie Richardson\r\n"], ["created_at", "2017-09-13 18:17:22.349799"], ["updated_at", "2017-09-13 18:17:22.349799"], ["position_title", "fdsfdf"], ["job_description", ""]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/posts/15
+Completed 302 Found in 4ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/posts/15" for 127.0.0.1 at 2017-09-13 14:17:22 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 15]]
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 15]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered comments/_form.html.erb (13.8ms)
+  Rendered posts/show.html.erb within layouts/application (23.8ms)
+Completed 200 OK in 62ms (Views: 56.4ms | ActiveRecord: 1.0ms)
+
+
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Started GET "/posts/new" for 127.0.0.1 at 2017-09-13 14:21:52 -0400
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  [1m[36mCoverLetter Load (0.1ms)[0m  [1m[34mSELECT  "cover_letters".* FROM "cover_letters" WHERE "cover_letters"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  Rendered posts/_form.html.erb (9.6ms)
+  Rendered posts/new.html.erb within layouts/application (11.9ms)
+Completed 200 OK in 61ms (Views: 48.9ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2017-09-13 14:22:02 -0400
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1Cfv78oAuO3Wy1V3u4mLi8nInG9Qi4++3wyBLUA8qlrT70/Lsiiy8sYLv0EeFs6CfruzO7/COSP7LTd6R1GhlA==", "post"=>{"company_name"=>"Test123", "position_title"=>"job", "job_description"=>"", "custom_cover_letter"=>"Dear Hiring Manager at [COMPANY],\r\n\r\nMy name is Jessie Richardson and I’m a developer applying for the role of [POSITION].\r\n\r\nFor the past year and a half, I have been working as a software developer at a small game startup. I was the first hire at my company, working alongside the CEO and CTO, so I am accustomed to wearing a lot of hats, being innovative, and product-savvy. In addition to coding and sometimes designing prototypes, I played an active role in strategizing revenue generation for each project, as well as ways to meet investor return goals.\r\n\r\nCulturally-speaking, I am an excellent communicator, easy-going, and comfortable working either independently or as part of a team. I always go the extra mile to ensure that the product I am developing is clean, functional, and scalable.\r\n\r\nIf all this seems like I could be a good fit for [COMPANY], I would love to hear more about the position and long-term goals of the company.\r\n\r\nThanks for taking the time to read!\r\n\r\nBest,\r\n\r\nJessie Richardson\r\n"}, "commit"=>"Create Post"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("company_name", "custom_cover_letter", "created_at", "updated_at", "position_title", "job_description") VALUES (?, ?, ?, ?, ?, ?)[0m  [["company_name", "Test123"], ["custom_cover_letter", "Dear Hiring Manager at [COMPANY],\r\n\r\nMy name is Jessie Richardson and I’m a developer applying for the role of [POSITION].\r\n\r\nFor the past year and a half, I have been working as a software developer at a small game startup. I was the first hire at my company, working alongside the CEO and CTO, so I am accustomed to wearing a lot of hats, being innovative, and product-savvy. In addition to coding and sometimes designing prototypes, I played an active role in strategizing revenue generation for each project, as well as ways to meet investor return goals.\r\n\r\nCulturally-speaking, I am an excellent communicator, easy-going, and comfortable working either independently or as part of a team. I always go the extra mile to ensure that the product I am developing is clean, functional, and scalable.\r\n\r\nIf all this seems like I could be a good fit for [COMPANY], I would love to hear more about the position and long-term goals of the company.\r\n\r\nThanks for taking the time to read!\r\n\r\nBest,\r\n\r\nJessie Richardson\r\n"], ["created_at", "2017-09-13 18:22:02.504704"], ["updated_at", "2017-09-13 18:22:02.504704"], ["position_title", "job"], ["job_description", ""]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/posts/16
+Completed 302 Found in 6ms (ActiveRecord: 1.8ms)
+
+
+Started GET "/posts/16" for 127.0.0.1 at 2017-09-13 14:22:02 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 16]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 16]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered comments/_form.html.erb (8.8ms)
+  Rendered posts/show.html.erb within layouts/application (20.2ms)
+Completed 200 OK in 63ms (Views: 57.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-13 14:22:20 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  Rendered posts/index.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 75ms (Views: 63.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/posts/16" for 127.0.0.1 at 2017-09-13 14:22:21 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 16]]
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 16]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered comments/_form.html.erb (3.0ms)
+  Rendered posts/show.html.erb within layouts/application (12.9ms)
+Completed 200 OK in 80ms (Views: 71.6ms | ActiveRecord: 0.8ms)
+
+
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "posts" SET "custom_cover_letter" = ?, "updated_at" = ? WHERE "posts"."id" = ?[0m  [["custom_cover_letter", "Dear Hiring Manager at Test123,\r\n\r\nMy name is Jessie Richardson and I’m a developer applying for the role of [POSITION].\r\n\r\nFor the past year and a half, I have been working as a software developer at a small game startup. I was the first hire at my company, working alongside the CEO and CTO, so I am accustomed to wearing a lot of hats, being innovative, and product-savvy. In addition to coding and sometimes designing prototypes, I played an active role in strategizing revenue generation for each project, as well as ways to meet investor return goals.\r\n\r\nCulturally-speaking, I am an excellent communicator, easy-going, and comfortable working either independently or as part of a team. I always go the extra mile to ensure that the product I am developing is clean, functional, and scalable.\r\n\r\nIf all this seems like I could be a good fit for Test123, I would love to hear more about the position and long-term goals of the company.\r\n\r\nThanks for taking the time to read!\r\n\r\nBest,\r\n\r\nJessie Richardson\r\n"], ["updated_at", "2017-09-13 18:27:32.136239"], ["id", 16]]
+  [1m[35m (8.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Started GET "/posts/16" for 127.0.0.1 at 2017-09-13 14:28:20 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 16]]
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 16]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered comments/_form.html.erb (6.4ms)
+  Rendered posts/show.html.erb within layouts/application (16.9ms)
+Completed 200 OK in 67ms (Views: 52.8ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-13 14:28:46 -0400
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  Rendered posts/index.html.erb within layouts/application (19.1ms)
+Completed 200 OK in 73ms (Views: 60.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/posts/15" for 127.0.0.1 at 2017-09-13 14:28:48 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 15]]
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 15]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered comments/_form.html.erb (7.6ms)
+  Rendered posts/show.html.erb within layouts/application (23.0ms)
+Completed 200 OK in 67ms (Views: 60.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-09-13 14:28:53 -0400
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  [1m[36mCoverLetter Load (0.1ms)[0m  [1m[34mSELECT  "cover_letters".* FROM "cover_letters" WHERE "cover_letters"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  Rendered posts/_form.html.erb (9.8ms)
+  Rendered posts/new.html.erb within layouts/application (13.8ms)
+Completed 200 OK in 63ms (Views: 51.1ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2017-09-13 14:29:01 -0400
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"jwSA3Meb6FuYOdt8TJ6kPnxvzBIadTzPMmyrcEC2k7eIzCD4v7PiRIj5MUrpAeE3yxzjRvU8ilIWTR0nR9uYeQ==", "post"=>{"company_name"=>"Yo", "position_title"=>"Dev", "job_description"=>"", "custom_cover_letter"=>"Dear Hiring Manager at [COMPANY],\r\n\r\nMy name is Jessie Richardson and I’m a developer applying for the role of [POSITION].\r\n\r\nFor the past year and a half, I have been working as a software developer at a small game startup. I was the first hire at my company, working alongside the CEO and CTO, so I am accustomed to wearing a lot of hats, being innovative, and product-savvy. In addition to coding and sometimes designing prototypes, I played an active role in strategizing revenue generation for each project, as well as ways to meet investor return goals.\r\n\r\nCulturally-speaking, I am an excellent communicator, easy-going, and comfortable working either independently or as part of a team. I always go the extra mile to ensure that the product I am developing is clean, functional, and scalable.\r\n\r\nIf all this seems like I could be a good fit for [COMPANY], I would love to hear more about the position and long-term goals of the company.\r\n\r\nThanks for taking the time to read!\r\n\r\nBest,\r\n\r\nJessie Richardson\r\n"}, "commit"=>"Create Post"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("company_name", "custom_cover_letter", "created_at", "updated_at", "position_title", "job_description") VALUES (?, ?, ?, ?, ?, ?)[0m  [["company_name", "Yo"], ["custom_cover_letter", "Dear Hiring Manager at Yo,\r\n\r\nMy name is Jessie Richardson and I’m a developer applying for the role of Dev.\r\n\r\nFor the past year and a half, I have been working as a software developer at a small game startup. I was the first hire at my company, working alongside the CEO and CTO, so I am accustomed to wearing a lot of hats, being innovative, and product-savvy. In addition to coding and sometimes designing prototypes, I played an active role in strategizing revenue generation for each project, as well as ways to meet investor return goals.\r\n\r\nCulturally-speaking, I am an excellent communicator, easy-going, and comfortable working either independently or as part of a team. I always go the extra mile to ensure that the product I am developing is clean, functional, and scalable.\r\n\r\nIf all this seems like I could be a good fit for Yo, I would love to hear more about the position and long-term goals of the company.\r\n\r\nThanks for taking the time to read!\r\n\r\nBest,\r\n\r\nJessie Richardson\r\n"], ["created_at", "2017-09-13 18:29:01.558569"], ["updated_at", "2017-09-13 18:29:01.558569"], ["position_title", "Dev"], ["job_description", ""]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/posts/17
+Completed 302 Found in 5ms (ActiveRecord: 1.3ms)
+
+
+Started GET "/posts/17" for 127.0.0.1 at 2017-09-13 14:29:01 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 17]]
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 17]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered comments/_form.html.erb (2.2ms)
+  Rendered posts/show.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 50ms (Views: 45.7ms | ActiveRecord: 0.4ms)
+
+

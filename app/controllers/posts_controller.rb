@@ -10,6 +10,9 @@ class PostsController < ApplicationController
     def create
         @post = Post.new(post_params)
 
+        @post.custom_cover_letter.gsub!('[COMPANY]', @post.company_name)
+        @post.custom_cover_letter.gsub!('[POSITION]', @post.position_title)
+
         if @post.save
             redirect_to @post
         else
