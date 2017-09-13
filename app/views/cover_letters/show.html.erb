@@ -1,0 +1,14 @@
+<div id="page_wrapper">
+    <p class="title">
+        <%= @cover_letter.name %>
+    </p>
+<p class="date">
+    Submitted <%= time_ago_in_words(@cover_letter.created_at) %>
+    | <%= link_to 'Edit', edit_cover_letter_path(@cover_letter) %>
+    | <%= link_to 'Delete', cover_letter_path(@cover_letter), method: :delete, data: {confirm: 'Are you sure?'} %>
+</p>
+
+<p class="body">
+    <%= simple_format(@cover_letter.body) %>
+</p>
+</div>

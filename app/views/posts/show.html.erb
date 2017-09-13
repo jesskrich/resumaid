@@ -1,0 +1,27 @@
+<div id="page_wrapper">
+    <h1 class="title">
+        <%= @post.company_name %>
+    </h1>
+    <h3>
+        <%= @post.position_title %>
+    </h3>
+
+<p class="date">
+    Submitted <%= time_ago_in_words(@post.created_at) %>
+    | <%= link_to 'Edit', edit_post_path(@post) %>
+    | <%= link_to 'Delete', post_path(@post), method: :delete, data: {confirm: 'Are you sure?'} %>
+</p>
+
+<p class="body">
+    <h3><b>Job Description</b></h3>
+    <%= simple_format(@post.job_description) %>
+    <br>
+    <h3><b>Cover Letter</b></h3>
+    <%= simple_format(@post.custom_cover_letter) %>
+</p>
+<div id="comments">
+    <h2><%= @post.comments.count %> Notes</h2>
+    <%= render @post.comments %>
+    <%= render "comments/form" %>
+</div>
+</div>

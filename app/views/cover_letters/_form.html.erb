@@ -1,0 +1,25 @@
+<%= form_for @cover_letter do |f| %>
+    <% if @cover_letter.errors.any? %>
+        <div id= "errors">
+            <h2><%= pluralize(@cover_letter.errors.count, "error") %> prevented this post from saving</h2>
+            <ul>
+                <% @cover_letter.errors.full_messages.each do |msg| %>
+                    <li> <%= msg %> </li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+    <p>
+        <%= f.label :name, "Name" %> <br>
+        <%= f.text_field :name %>
+    </p>
+    <p>
+        <%= f.label :body, "Cover Letter" %> <br>
+        <%= f.text_area :body %>
+    </p>
+    <p>
+        <%= f.submit %>
+    </p>
+<% end %>
+
+</div>

@@ -1,0 +1,16 @@
+<div id="page_wrapper">
+
+	<div id="content">
+        <h1>Default Cover Letter</h1>
+        <% @cover_letters.each do |cover_letter| %>
+            <div class= "post_wrapper">
+                <h2 class="title"> <%= link_to cover_letter.name, cover_letter %> </h2>
+                <p class="date"> <%= cover_letter.created_at.strftime("%B, %d, %Y") %></p>
+
+            </div>
+        <% end %>
+        <div class="buttons">
+            <button class= "button"><%= link_to "New Cover Letter ", new_cover_letter_path %> </button>
+        </div>
+    </div>
+</div>
