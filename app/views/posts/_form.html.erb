@@ -25,7 +25,7 @@
     <p>
         <%= f.label :custom_cover_letter, "Custom Cover Letter" %> <br>
         <% if @post.custom_cover_letter == nil %>
-            <%= f.text_area :custom_cover_letter, :value => CoverLetter.find(16).body %>
+            <%= f.text_area :custom_cover_letter, :value => CoverLetter.find(14).body %>
         <% else %>
             <%= f.text_area :custom_cover_letter, :value => @post.custom_cover_letter %>
         <% end %>
